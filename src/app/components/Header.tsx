@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import svgPaths from "../../imports/svg-3eb6c5k5pc";
 
+// Nettoyage : Suppression de l'import SVG externe qui peut causer des erreurs de build
 interface HeaderProps {
   onMenuClick: () => void;
 }
@@ -22,6 +22,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
               data-name="Link"
             >
               <div className="relative shrink-0 size-[20px]" data-name="Container">
+                {/* SVG interne pour garantir l'affichage sans dépendances externes */}
                 <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
                   <g id="Container">
                     <rect x="0" y="2" width="20" height="2" fill="#212121" fillOpacity="0.8" rx="1" />
