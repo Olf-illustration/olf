@@ -60,4 +60,44 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
                   <p className="leading-[112px] mb-0">&nbsp;</p>
                   <p className="leading-[112px]">&nbsp;</p>
                 </div>
-                <div className="flex flex-col justify-center relative
+                <div className="flex flex-col justify-center relative shrink-0 text-[24px] max-w-[812px]">
+                  <p className="leading-[32px] mb-0">{`Mais ça fera plaisir à mon psy. `}</p>
+                  <p className="leading-[32px] mb-0">{`Ensuite j'imagine que ça me permet de me soigner. `}</p>
+                  <p className="leading-[32px] mb-0">&nbsp;</p>
+                  <p className="leading-[32px] mb-0">{`on verra. `}</p>
+                  <p className="leading-[32px] mb-0">&nbsp;</p>
+                  <p className="leading-[32px]">Bisous.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute backdrop-blur-[12px] bg-[rgba(250,249,249,0.8)] content-stretch flex flex-col items-start left-0 top-0 w-full z-50" data-name="TopNavBar">
+        <div className="max-w-[1536px] relative shrink-0 w-full" data-name="Container">
+          <div className="flex flex-row items-center max-w-[inherit] size-full">
+            <div className="content-stretch flex items-center justify-between max-w-[inherit] px-[32px] py-[24px] relative w-full">
+              <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Link">
+                <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[32px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[24px] tracking-[-1.2px] uppercase w-[42.55px]">
+                  <p className="leading-[32px]">OLF</p>
+                </div>
+              </div>
+              <button
+                onClick={onClose}
+                className="content-stretch flex items-center relative shrink-0 cursor-pointer bg-transparent border-0 hover:opacity-70 transition-opacity"
+                data-name="Link"
+              >
+                <div className="relative shrink-0 size-[20px]" data-name="Container">
+                  <svg className="absolute block size-full" fill="none" viewBox="0 0 24 24" stroke="#212121" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
