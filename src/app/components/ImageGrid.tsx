@@ -1,37 +1,24 @@
-import imgAb6AXuCrxpqv from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuDiTrfW from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuBpeI3E from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuBaBIwD from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuBz8DsX from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhA from "fhttps://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhB from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhC from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhD from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhE from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhF from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhG from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhH from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhI from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import imgAb6AXuD5ZChhJ from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
-import svgPaths from "../../imports/svg-aeygk8ig3n";
 import { useState } from "react";
 
+// NETTOYAGE : Les images sont maintenant directement dans le tableau ci-dessous 
+// pour éviter les erreurs de build liées aux imports de modules externes.
+
 const images = [
-  imgAb6AXuCrxpqv,
-  imgAb6AXuDiTrfW,
-  imgAb6AXuBpeI3E,
-  imgAb6AXuBaBIwD,
-  imgAb6AXuBz8DsX,
-  imgAb6AXuD5ZChhA,
-  imgAb6AXuD5ZChhB,
-  imgAb6AXuD5ZChhC,
-  imgAb6AXuD5ZChhD,
-  imgAb6AXuD5ZChhE,
-  imgAb6AXuD5ZChhF,
-  imgAb6AXuD5ZChhG,
-  imgAb6AXuD5ZChhH,
-  imgAb6AXuD5ZChhI,
-  imgAb6AXuD5ZChhJ
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg", // Le 'f' a été supprimé ici
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+  "https://i.postimg.cc/m2qYdkFB/portes.jpg"
 ];
 
 export default function ImageGrid() {
@@ -51,7 +38,7 @@ export default function ImageGrid() {
               <div className="relative shrink-0 size-[27px]" data-name="Container">
                 <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 27 27">
                   <g id="Container">
-                    <path d={svgPaths.p2e492a00} fill="var(--fill-0, #212121)" id="Icon" />
+                    <path d="M13.5 0L16.5 10.5L27 13.5L16.5 16.5L13.5 27L10.5 16.5L0 13.5L10.5 10.5L13.5 0Z" fill="#212121" id="Icon" />
                   </g>
                 </svg>
               </div>
