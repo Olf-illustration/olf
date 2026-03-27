@@ -1,8 +1,3 @@
-import imgMeduseMondrian2Jpg from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
-import img27WhiteTriJpg from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
-import imgAb6AXuBpeI3E from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
-import imgAb6AXuBaBIwD from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
-
 export interface Serie {
   id: string;
   title: string;
