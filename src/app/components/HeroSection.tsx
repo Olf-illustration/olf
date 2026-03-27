@@ -1,6 +1,6 @@
-import imgA411Png from "figma:asset/1ce3f394dd539de1084d85501ee35b8dbe0b917c.png";
-import imgMeduseMondrian2Jpg from "figma:asset/2f16797ff25660f5d071452d2b1cae151bd18f64.png";
-import img27WhiteTriJpg from "figma:asset/63cc0ef0033452d1c1f4cb9f9b82bcd4346526f0.png";
+import imgA411Png from "https://i.postimg.cc/QtWh1kBs/A4_11.png";
+import imgMeduseMondrian2Jpg from "https://i.postimg.cc/qvCwfNCT/meduse_mondrian_2.jpg";
+import img27WhiteTriJpg from "https://i.postimg.cc/xC18NFHk/leclubdes27.jpg";
 
 export default function HeroSection() {
   return (
