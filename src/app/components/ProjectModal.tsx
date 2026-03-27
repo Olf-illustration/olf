@@ -13,138 +13,73 @@ interface ProjectData {
   tags: string[];
 }
 
-// Les images sont maintenant directement intégrées ici sous forme de texte (URLs)
 const projectsData: Record<string, ProjectData> = {
   'mp3': {
     title: 'MP3',
     description: 'Quand la musique est bonne, bonne, bonne.',
-    images: [
-      "https://i.postimg.cc/pLKpwjRQ/bowie_fond_blanc_uni.jpg",
-      "https://i.postimg.cc/jjXC5rWf/gallagher.jpg",
-      "https://i.postimg.cc/Tw315HmC/mercury.jpg",
-      "https://i.postimg.cc/W4nt3PD3/gainsbourg.jpg",
-      "https://i.postimg.cc/g020XZq9/27white_tri.jpg"
-    ],
+    images: ["https://i.postimg.cc/pLKpwjRQ/bowie_fond_blanc_uni.jpg", "https://i.postimg.cc/jjXC5rWf/gallagher.jpg", "https://i.postimg.cc/Tw315HmC/mercury.jpg", "https://i.postimg.cc/W4nt3PD3/gainsbourg.jpg", "https://i.postimg.cc/g020XZq9/27white_tri.jpg"],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   },
   'perception': {
     title: 'PERCEPTION',
     description: 'Approche minimaliste pour tenter de coucher sur le papier un état psychologique.',
-    images: [
-      "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-      "https://i.postimg.cc/wTPXWMsH/ombre.jpg",
-      "https://i.postimg.cc/mkCn3yMn/trope.jpg"
-    ],
+    images: ["https://i.postimg.cc/m2qYdkFB/portes.jpg", "https://i.postimg.cc/wTPXWMsH/ombre.jpg", "https://i.postimg.cc/mkCn3yMn/trope.jpg"],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   },
   'aaahh!': {
     title: 'AAAHH!',
-    description: "Capsule colorée qui vient contrebalancer l'omnipresence du noir et blanc. Un peu de couleur dans ce monde de brute, merde !",
-    images: [
-      "https://i.postimg.cc/BvsX4vnm/cats.jpg",
-      "https://i.postimg.cc/YCQh5FMX/cat_2.jpg"
-    ],
+    description: "Un peu de couleur dans ce monde de brute, merde !",
+    images: ["https://i.postimg.cc/BvsX4vnm/cats.jpg", "https://i.postimg.cc/YCQh5FMX/cat_2.jpg"],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   },
   'ombre passagère': {
     title: 'OMBRE PASSAGÈRE',
     description: 'Peter Pan a vieillit.',
-    images: [
-      "https://i.postimg.cc/9Qyr69C4/A4_23.jpg",
-      "https://i.postimg.cc/Z56CGN43/A4_25.jpg"
-    ],
+    images: ["https://i.postimg.cc/9Qyr69C4/A4_23.jpg", "https://i.postimg.cc/Z56CGN43/A4_25.jpg"],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   }
 };
 
-function Background({ children }: React.PropsWithChildren<{}>) {
-  return (
-    <div className="bg-[#eee] relative rounded-[12px] self-stretch shrink-0">
-      <div className="content-stretch flex flex-col h-full items-start px-[20px] py-[8px] relative">{children}</div>
-    </div>
-  );
-}
-
 export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
   useEffect(() => {
-    if (serie) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = serie ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [serie]);
 
   if (!serie) return null;
-
   const project = projectsData[serie.id] || projectsData['mp3'];
 
   return (
-    <div className="fixed inset-0 z-[100] backdrop-blur-[2px] bg-[rgba(33,33,33,0.3)] content-stretch flex items-center justify-center p-[40px]" data-name="Modal Overlay">
-      <div className="bg-white flex-[1_0_0] h-full max-w-[1200px] min-h-px min-w-px overflow-x-clip overflow-y-auto relative rounded-[48px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] scrollbar-hide" data-name="Article - Project Detail Modal" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <div className="content-stretch flex flex-col gap-[64px] items-center px-[96px] py-[64px]" data-name="Modal Scrollable Content">
-          <div className="content-stretch flex flex-col gap-[14.875px] items-start max-w-[672px] relative shrink-0 w-full" data-name="Header: Centered Title & Description">
-            <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-name="Heading 1">
-              <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[72px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[72px] text-center tracking-[-3.6px] uppercase">
-                <p className="leading-[72px]">{project.title}</p>
-              </div>
-            </div>
-            <div className="content-stretch flex flex-col items-center pb-[0.625px] relative shrink-0 w-full" data-name="Container">
-              <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#a09f9e] text-[18px] text-center">
-                <p className="leading-[24.75px]">{project.description}</p>
-              </div>
-            </div>
+    <div className="fixed inset-0 z-[100] backdrop-blur-[2px] bg-[rgba(33,33,33,0.3)] flex items-center justify-center p-[40px]">
+      <div className="bg-white flex-1 h-full max-w-[1200px] overflow-y-auto relative rounded-[48px] shadow-2xl p-[64px] lg:px-[96px]">
+        <div className="flex flex-col gap-[64px] items-center">
+          <div className="text-center max-w-[672px]">
+            <h2 className="font-['Epilogue:Black'] font-black text-[72px] uppercase tracking-tighter text-[#212121]">{project.title}</h2>
+            <p className="font-['Inter:Medium'] text-[#a09f9e] text-[18px] mt-4">{project.description}</p>
           </div>
 
-          <div className="content-stretch flex flex-col gap-[24px] items-start pb-[16px] relative shrink-0 w-full" data-name="Visuals Grid">
-            {project.images.map((image, index) => (
-              <div key={index} className="bg-[#f4f3f3] content-stretch flex flex-col items-start justify-center overflow-clip relative rounded-[32px] shrink-0 w-full" data-name="Featured Image">
-                <div className="relative shrink-0 w-full">
-                  <div className="relative overflow-hidden w-full">
-                    <img alt="" className="w-full h-auto object-contain" src={image} />
-                  </div>
-                </div>
+          <div className="flex flex-col gap-[24px] w-full">
+            {project.images.map((img, i) => (
+              <div key={i} className="rounded-[32px] overflow-hidden bg-[#f4f3f3]">
+                <img src={img} alt="" className="w-full h-auto object-contain" />
               </div>
             ))}
           </div>
 
-          <div className="content-stretch flex items-center justify-between pt-[41px] relative shrink-0 w-full" data-name="Footer: Navigation/Tags">
-            <div aria-hidden="true" className="absolute border-[rgba(196,199,199,0.2)] border-solid border-t inset-0 pointer-events-none" />
-            <div className="h-[33px] relative shrink-0" data-name="Container">
-              <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[8px] h-full items-start relative">
-                {project.tags.map((tag, index) => (
-                  <Background key={index}>
-                    <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[17px] justify-center leading-[0] not-italic relative shrink-0 text-[#1a1c1c] text-[11px] tracking-[1.1px] uppercase">
-                      <p className="leading-[16.5px]">{tag}</p>
-                    </div>
-                  </Background>
-                ))}
-              </div>
+          <div className="w-full border-t border-gray-100 pt-8 flex justify-between items-center">
+            <div className="flex gap-2">
+              {project.tags.map((tag, i) => (
+                <span key={i} className="bg-[#eee] px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-widest">{tag}</span>
+              ))}
             </div>
-            <a 
-              href="https://www.instagram.com/ton_compte" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="bg-[#212121] relative rounded-[12px] shrink-0 hover:opacity-90 transition-opacity" 
-              data-name="Button"
-            >
-              <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center justify-center px-[40px] py-[20px] relative">
-                <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[20px] justify-center leading-[0] relative shrink-0 text-[14px] text-center text-white tracking-[-0.35px] uppercase">
-                  <p className="leading-[20px]">instagram</p>
-                </div>
-              </div>
-            </a>
+            <a href="https://instagram.com" target="_blank" className="bg-[#212121] text-white px-10 py-5 rounded-xl font-black uppercase text-[14px]">instagram</a>
           </div>
         </div>
 
-        <button 
-          onClick={onClose}
-          className="absolute content-stretch cursor-pointer flex items-center justify-center right-[32px] size-[40px] top-[32px] bg-transparent border-0 hover:opacity-70 transition-opacity" 
-          data-name="Close Button"
-        >
-          <div className="relative shrink-0 size-[20px]" data-name="Container">
-            {/* SVG de fermeture intégré (X) */}
-            <svg className="absolute block size-full" fill="none" viewBox="0 0 24 24" stroke="#212121" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12
+        <button onClick={onClose} className="absolute right-8 top-8 w-10 h-10 flex items-center justify-center hover:opacity-50 transition-opacity">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </div>
+  );
+}
