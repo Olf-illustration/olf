@@ -1,7 +1,7 @@
-import imgMeduseMondrian2Jpg from "figma:asset/0c9e0565c8bdb85e02554daa48aeff37a2768b94.png";
-import img27WhiteTriJpg from "figma:asset/ac11a7e1786abed2db70b1b98c3c4adb75a163ab.png";
-import imgAb6AXuBpeI3E from "figma:asset/af36b7c1eca7c5060d509c7d07b05c72a4fd0d57.png";
-import imgAb6AXuBaBIwD from "figma:asset/5efbf3558e1c3f16cd3d379493e7ee2eb9c4d869.png";
+import imgMeduseMondrian2Jpg from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
+import img27WhiteTriJpg from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
+import imgAb6AXuBpeI3E from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
+import imgAb6AXuBaBIwD from "https://i.postimg.cc/ZR5nvD3W/joker.jpg";
 
 export interface Serie {
   id: string;
