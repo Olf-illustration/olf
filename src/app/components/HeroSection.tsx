@@ -39,4 +39,29 @@ export default function HeroSection() {
               
               {/* Card 2 - Center slight rotation */}
               <div className="absolute rotate-3 transition-all duration-700 ease-out group-hover:scale-105 group-hover:rotate-0 group-hover:z-10" style={{ zIndex: 2 }}>
-                <div className="bg-black content-stretch flex flex-col items-start justify-center
+                <div className="bg-black content-stretch flex flex-col items-start justify-center overflow-clip relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] group-hover:shadow-[0px_30px_60px_-15px_rgba(0,0,0,0.35)] transition-shadow duration-700 size-[384px]" data-name="Background+Shadow">
+                  <div className="flex-[1_0_0] min-h-px min-w-px relative rounded-[16px] w-full mix-blend-screen opacity-90">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[16px]">
+                      <img alt="" className="absolute h-[146.95%] left-[-3.91%] max-w-none top-[-43.94%] w-[103.97%]" src="https://i.postimg.cc/qvCwfNCT/meduse_mondrian_2.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Card 3 - Right rotated */}
+              <div className="absolute rotate-12 transition-all duration-700 ease-out group-hover:scale-105 group-hover:rotate-6 group-hover:translate-x-[220px] group-hover:z-10" style={{ zIndex: 3 }}>
+                <div className="bg-white content-stretch flex flex-col items-start justify-center overflow-clip relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] group-hover:shadow-[0px_30px_60px_-15px_rgba(0,0,0,0.35)] transition-shadow duration-700 size-[384px]" data-name="Background+Shadow">
+                  <div className="flex-[1_0_0] min-h-px min-w-px relative rounded-[16px] w-full mix-blend-multiply">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[16px]">
+                      <img alt="" className="absolute h-[141.34%] left-0 max-w-none top-[-20.67%] w-full" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
