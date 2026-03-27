@@ -8,35 +8,33 @@ import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 import MenuModal from './components/MenuModal';
 
-import imgMeduseMondrian2Jpg from "https://i.postimg.cc/qvCwfNCT/meduse_mondrian_2.jpg";
-import img27WhiteTriJpg from "https://i.postimg.cc/g020XZq9/27white_tri.jpg";
-import imgAb6AXuBpeI3E from "https://i.postimg.cc/QtWh1kBs/A4_11.png";
-import imgAb6AXuBaBIwD from "https://i.postimg.cc/QtWh1kBs/A4_11.png";
+// ON NE FAIT PLUS D'IMPORT POUR LES IMAGES DISTANTES ICI
 
 export default function App() {
   const [selectedSerie, setSelectedSerie] = useState<Serie | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // On met les liens directement dans le tableau
   const series: Serie[] = [
     {
       id: 'mp3',
       title: 'MP3',
-      image: imgMeduseMondrian2Jpg
+      image: "https://i.postimg.cc/qvCwfNCT/meduse_mondrian_2.jpg"
     },
     {
       id: 'perception',
       title: 'Perception',
-      image: img27WhiteTriJpg
+      image: "https://i.postimg.cc/g020XZq9/27white_tri.jpg"
     },
     {
       id: 'aaahh!',
       title: 'aaahh!',
-      image: imgAb6AXuBpeI3E
+      image: "https://i.postimg.cc/QtWh1kBs/A4_11.png"
     },
     {
       id: 'ombre passagère',
       title: 'Ombre passagère',
-      image: imgAb6AXuBaBIwD
+      image: "https://i.postimg.cc/QtWh1kBs/A4_11.png"
     }
   ];
 
