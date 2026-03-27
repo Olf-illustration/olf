@@ -3,11 +3,18 @@ import svgPaths from "../../imports/svg-ie2a3i820k";
 import { Serie } from './CurvedCarousel';
 
 // Import all project images
-import img1 from "figma:asset/0a281c31f8174008112eedbf55d4fb8286d3e7b4.png";
-import img2 from "figma:asset/714e894c5bf375f314862dd18e6fb00e668fc6d0.png";
-import img3 from "figma:asset/277927ffd5b8604dff472698a82b3444473a8b55.png";
-import img4 from "figma:asset/eea86cb8c544a2dbe78eec06d74d45639d50fcd7.png";
-import img5 from "figma:asset/b7c6e7a6638682e966f5c3a945997fb64854baab.png";
+import img1 from "https://i.postimg.cc/pLKpwjRQ/bowie_fond_blanc_uni.jpg";
+import img2 from "https://i.postimg.cc/jjXC5rWf/gallagher.jpg";
+import img3 from "https://i.postimg.cc/Tw315HmC/mercury.jpg";
+import img4 from "https://i.postimg.cc/W4nt3PD3/gainsbourg.jpg";
+import img5 from "https://i.postimg.cc/g020XZq9/27white_tri.jpg";
+import img6 from "https://i.postimg.cc/m2qYdkFB/portes.jpg";
+import img7 from "https://i.postimg.cc/wTPXWMsH/ombre.jpg";
+import img8 from "https://i.postimg.cc/mkCn3yMn/trope.jpg";
+import img9 from "https://i.postimg.cc/BvsX4vnm/cats.jpg";
+import img10 from "https://i.postimg.cc/YCQh5FMX/cat_2.jpg";
+import img11 from "https://i.postimg.cc/9Qyr69C4/A4_23.jpg";
+import img12 from "https://i.postimg.cc/Z56CGN43/A4_25.jpg";
 
 interface ProjectModalProps {
   serie: Serie | null;
@@ -31,19 +38,19 @@ const projectsData: Record<string, ProjectData> = {
   'perception': {
     title: 'PERCEPTION',
     description: 'Approche minimaliste pour tenter de coucher sur le papier un état psychologique.',
-    images: [img1, img2, img3],
+    images: [img6, img7, img8],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   },
   'aaahh!': {
     title: 'AAAHH!',
     description: 'Capsule colorée qui vient contrebalancer l\'omnipresence du noir et blanc. Un peu de couleur dans ce monde de brute, merde !',
-    images: [img1, img2],
+  images: [img9, img10],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   },
   'ombre passagère': {
     title: 'OMBRE PASSAGÈRE',
     description: 'Peter Pan a vieillit.',
-    images: [img1],
+    images: [img11, img12],
     tags: ['Brooklyn', 'Illustration', 'Editorial']
   }
 };
