@@ -4,7 +4,7 @@ export default function HeroSection() {
       <div className="flex flex-col items-center w-full">
         <div className="flex flex-col gap-[15px] items-center w-full px-[32px] pt-[60px] relative">
           
-          {/* Lille, FR - Maintenant centré sans largeur fixe */}
+          {/* Lille, FR */}
           <div className="flex flex-col justify-center items-center w-full text-[#444748] text-[14px] tracking-[4.2px] uppercase font-sans">
             <p>Lille, FR</p>
           </div>
@@ -23,29 +23,35 @@ export default function HeroSection() {
             </p>
           </div>
           
-          {/* Pile d'illustrations (Cartes) */}
-          <div className="h-[581px] max-w-[896px] relative w-full mt-8" data-name="Hero Illustration Stack">
+          {/* Pile d'illustrations animée façon Spencer Gabor */}
+          {/* Ajout de cursor-pointer pour inciter au survol */}
+          <div className="h-[581px] max-w-[896px] relative w-full mt-8 cursor-pointer" data-name="Hero Illustration Stack">
             <div className="absolute inset-0 flex items-center justify-center group">
-              {/* Card 1 */}
-              <div className="absolute -rotate-12 transition-all duration-700 group-hover:scale-105 group-hover:-rotate-6 group-hover:-translate-x-[220px] z-[1]">
-                <div className="bg-white overflow-hidden rounded-[16px] shadow-2xl size-[384px]">
-                   <img alt="" className="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://i.postimg.cc/QtWh1kBs/A4_11.png" />
+              
+              {/* Card 1 (Gauche) */}
+              <div className="absolute z-[1] transition-all duration-500 ease-out -rotate-6 group-hover:-rotate-12 group-hover:-translate-x-[240px] group-hover:scale-105">
+                {/* Ajout d'une bordure blanche épaisse pour l'effet carte */}
+                <div className="bg-white overflow-hidden rounded-[16px] shadow-xl size-[384px] border-[8px] border-white">
+                   <img alt="Illustration 1" className="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://i.postimg.cc/QtWh1kBs/A4_11.png" />
                 </div>
               </div>
               
-              {/* Card 2 */}
-              <div className="absolute rotate-3 transition-all duration-700 group-hover:scale-105 group-hover:rotate-0 z-[2]">
-                <div className="bg-black overflow-hidden rounded-[16px] shadow-2xl size-[384px]">
-                  <img alt="" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/qvCwfNCT/meduse_mondrian_2.jpg" />
+              {/* Card 3 (Droite) */}
+              <div className="absolute z-[2] transition-all duration-500 ease-out rotate-6 group-hover:rotate-12 group-hover:translate-x-[240px] group-hover:scale-105">
+                <div className="bg-white overflow-hidden rounded-[16px] shadow-xl size-[384px] border-[8px] border-white">
+                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
+                </div>
+              </div>
+
+              {/* Card 2 (Centre - Au dessus) */}
+              {/* z-[10] assure qu'elle reste toujours au premier plan */}
+              <div className="absolute z-[10] transition-all duration-500 ease-out rotate-0 group-hover:scale-110">
+                <div className="bg-black overflow-hidden rounded-[16px] shadow-2xl size-[384px] border-[8px] border-black">
+                  {/* CORRECTION DU LIEN DE L'IMAGE ICI */}
+                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/Qt8yG2J3/meduse-mondrian-2.jpg" />
                 </div>
               </div>
               
-              {/* Card 3 */}
-              <div className="absolute rotate-12 transition-all duration-700 group-hover:scale-105 group-hover:rotate-6 group-hover:translate-x-[220px] z-[3]">
-                <div className="bg-white overflow-hidden rounded-[16px] shadow-2xl size-[384px]">
-                  <img alt="" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
-                </div>
-              </div>
             </div>
           </div>
 
