@@ -24,7 +24,7 @@ export default function App() {
     {
       id: 'perception',
       title: 'Perception',
-      image: "https://i.postimg.cc/wTPXWMsH/ombre.jpg",
+      image: "https://i.postimg.cc/m2qYdkFB/portes.jpg",
     },
     {
       id: 'aaahh!',
