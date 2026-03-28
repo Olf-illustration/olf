@@ -19,6 +19,10 @@ const images = [
   "https://i.postimg.cc/GtjzPhts/Rebelle_Artwork.jpg",
   "https://i.postimg.cc/mkCn3yMn/trope.jpg",
   "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg"
+  "https://i.postimg.cc/J0J0SGZw/visages_multiples.jpg"
+  "https://i.postimg.cc/QtvV6p9d/littleredhood.jpg"
+  "https://i.postimg.cc/ZRX0frBT/Rebelle_Artworkpeinture_2020.jpg"
+
 ];
 
 export default function ImageGrid() {
