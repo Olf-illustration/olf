@@ -54,8 +54,14 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
       <div className="bg-white flex-1 h-full max-w-[1200px] overflow-y-auto relative rounded-[48px] shadow-2xl p-[64px] lg:px-[96px]">
         <div className="flex flex-col gap-[64px] items-center">
           <div className="text-center max-w-[672px]">
-            <h2 className="font-['Epilogue:Black'] font-black text-[72px] uppercase tracking-tighter text-[#212121]">{project.title}</h2>
-            <p className="font-['Inter:Medium'] text-[#a09f9e] text-[18px] mt-4">{project.description}</p>
+            {/* TITRE : Utilisation de font-epilogue et font-black */}
+            <h2 className="font-epilogue font-black text-[72px] uppercase tracking-tighter text-[#212121] leading-tight">
+              {project.title}
+            </h2>
+            {/* DESCRIPTION : Utilisation de font-inter et font-medium */}
+            <p className="font-inter font-medium text-[#a09f9e] text-[18px] mt-4 leading-relaxed">
+              {project.description}
+            </p>
           </div>
 
           <div className="flex flex-col gap-[24px] w-full">
@@ -69,10 +75,10 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
           <div className="w-full border-t border-gray-100 pt-8 flex justify-between items-center">
             <div className="flex gap-2">
               {project.tags.map((tag, i) => (
-                <span key={i} className="bg-[#eee] px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-widest">{tag}</span>
+                <span key={i} className="font-inter bg-[#eee] px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-widest">{tag}</span>
               ))}
             </div>
-            <a href="https://instagram.com" target="_blank" className="bg-[#212121] text-white px-10 py-5 rounded-xl font-black uppercase text-[14px]">instagram</a>
+            <a href="https://instagram.com" target="_blank" className="font-epilogue bg-[#212121] text-white px-10 py-5 rounded-xl font-black uppercase text-[14px]">instagram</a>
           </div>
         </div>
 
