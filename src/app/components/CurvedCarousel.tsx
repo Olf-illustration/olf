@@ -17,38 +17,43 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // Gestion du début du clic
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     setIsDragging(true);
-    // On enregistre la position de départ de la souris et du scroll actuel
     setStartX(e.pageX - scrollRef.current.offsetLeft);
     setScrollLeft(scrollRef.current.scrollLeft);
   };
 
-  // Gestion de la fin du clic
   const handleMouseUpOrLeave = () => {
     setIsDragging(false);
   };
 
-  // Gestion du mouvement
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !scrollRef.current) return;
     e.preventDefault();
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Le multiplicateur '2' ajuste la vitesse de défilement
+    const walk = (x - startX) * 2;
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
-    <div className="w-full relative overflow-hidden bg-[#faf9f9] py-20">
+    <div className="content-stretch flex flex-col gap-[64px] items-start max-w-[1536px] pt-[166px] px-[32px] relative shrink-0 w-full">
+      
+      {/* 1. RESTAURATION DU TITRE */}
+      <div className="content-stretch flex flex-col items-center relative shrink-0 w-full">
+        <div className="flex flex-col font-epilogue font-black h-[60px] justify-center leading-none relative shrink-0 text-[#212121] text-[60px] text-center tracking-[-3px] uppercase">
+          <p>Dernières séries</p>
+        </div>
+      </div>
+
+      {/* 2. LE CARROUSEL (avec padding-bottom pour ne pas rogner les boutons) */}
       <div 
         ref={scrollRef}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseUpOrLeave}
         onMouseUp={handleMouseUpOrLeave}
         onMouseMove={handleMouseMove}
-        className={`flex gap-12 px-[10vw] overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none ${
+        className={`flex gap-12 w-full overflow-x-auto scrollbar-hide pb-20 cursor-grab active:cursor-grabbing select-none ${
           isDragging ? 'scroll-smooth-none' : 'scroll-smooth'
         }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -56,11 +61,10 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
         {series.map((serie) => (
           <div 
             key={serie.id}
-            onClick={() => !isDragging && onSerieClick(serie)} // On empêche le clic si on est en train de draguer
+            onClick={() => !isDragging && onSerieClick(serie)}
             className="flex-none w-[400px] group cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
           >
             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-xl bg-white">
-              {/* Effets de blend selon le projet (comme discuté avant) */}
               <img 
                 src={serie.image} 
                 alt={serie.title}
@@ -70,8 +74,10 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
                 }`}
               />
             </div>
-            <div className="mt-6 text-center">
-              <span className="bg-[#eee] px-6 py-2 rounded-full text-[12px] font-black tracking-widest uppercase text-[#212121]">
+            
+            {/* BOUTON SOUS L'IMAGE */}
+            <div className="mt-8 flex justify-center">
+              <span className="bg-[#e2e2e2] px-8 py-3 rounded-xl font-epilogue font-bold text-[14px] tracking-widest uppercase text-[#212121] group-hover:bg-[#d2d2d2] transition-colors">
                 {serie.title}
               </span>
             </div>
