@@ -49,4 +49,53 @@ export default function ImageGrid() {
               </div>
             </div>
 
-            <div className="gap-x-[32px] gap-
+            <div className="gap-x-[32px] gap-y-[32px] grid grid-cols-[repeat(3,minmax(0,1fr))] relative rounded-[20px] shrink-0 w-full" data-name="Grid Container">
+              {images.map((image, index) => (
+                <div 
+                  key={index}
+                  onClick={() => setSelectedImage(image)}
+                  className="bg-[rgba(157,202,255,0)] content-stretch flex flex-col items-start justify-center overflow-clip relative rounded-[16px] shrink-0 hover:scale-[1.02] transition-transform cursor-pointer" 
+                  data-name={`Item ${index + 1}`}
+                >
+                  <div className="h-[384px] mix-blend-multiply relative shrink-0 w-full">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <img 
+                        alt={`Artwork ${index + 1}`} 
+                        className="absolute h-full left-0 max-w-none top-0 w-full object-cover" 
+                        src={image} 
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-8"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-8 right-8 z-[101] text-white hover:opacity-70 transition-opacity"
+            aria-label="Close modal"
+          >
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M24 8L8 24M8 8L24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </button>
+          <img 
+            src={selectedImage} 
+            alt="Full size artwork" 
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
+  );
+}
