@@ -111,4 +111,35 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
           </p>
 
           {/* MOSAÏQUE D'IMAGES (Maximum 5) */}
-          <div className="w-full max-w-[1000px] mx-auto grid grid-cols-1
+          <div className="w-full max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 pb-20">
+            {project.images.slice(0, 5).map((img, idx) => {
+              
+              // La 3ème image (index 2) prend toute la largeur sur grand écran
+              const isFullWidth = idx === 2;
+
+              return (
+                <div 
+                  key={idx} 
+                  className={`relative w-full overflow-hidden rounded-[24px] shadow-sm transition-transform duration-500 hover:scale-[1.02] ${
+                    isFullWidth ? 'md:col-span-2' : 'md:col-span-1'
+                  }`}
+                >
+                  <img 
+                    src={img} 
+                    alt={`${project.title} artwork ${idx + 1}`} 
+                    // On force un format pour que la grille soit toujours bien alignée
+                    className={`w-full h-full object-cover ${
+                      isFullWidth ? 'aspect-[2/1] md:aspect-[21/9]' : 'aspect-square md:aspect-[4/3]'
+                    }`}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+  );
+}
