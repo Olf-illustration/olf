@@ -39,7 +39,7 @@ export default function HeroSection() {
               {/* Card 3 (Droite) */}
               <div className="absolute z-[2] transition-all duration-500 ease-out rotate-6 group-hover:rotate-12 group-hover:translate-x-[240px] group-hover:scale-105">
                 <div className="bg-white overflow-hidden rounded-[16px] shadow-xl size-[384px] border-[8px] border-white">
-                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
+                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/m2qYdkFB/portes.jpg" />
                 </div>
               </div>
 
