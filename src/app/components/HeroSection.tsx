@@ -96,8 +96,8 @@ export default function HeroSection() {
                     : `translate(0px, -8px) rotate(3deg) scale(1)`
                 }}
               >
-                <div className={`bg-black overflow-hidden rounded-[20px] size-[320px] border-[8px] border-black transition-shadow duration-300 ${isHovered ? 'shadow-2xl' : 'shadow-xl'}`}>
-                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90 pointer-events-none" src="https://i.postimg.cc/sg5vkWsG/A4_21.jpg" />
+                <div className={`bg-black overflow-hidden rounded-[20px] size-[320px] border-[8px] border-white transition-shadow duration-300 ${isHovered ? 'shadow-2xl' : 'shadow-xl'}`}>
+                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90 pointer-events-none" src="https://i.postimg.cc/BvsX4vnm/cats.jpg" />
                 </div>
               </div>
               
