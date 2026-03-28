@@ -4,8 +4,9 @@ export default function HeroSection() {
       <div className="flex flex-col items-center max-w-[inherit] size-full">
         <div className="content-stretch flex flex-col gap-[15px] items-center max-w-[inherit] px-[32px] relative size-full">
           <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-name="Container">
-            <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] not-italic relative shrink-0 text-[#444748] text-[14px] text-center tracking-[4.2px] uppercase w-[98.97px]">
-              <p className="leading-[20px]">Lille, FR</p>
+            <div className="flex flex-col font-normal h-[20px] justify-center relative text-[#444748] text-[14px] text-center tracking-[4.2px] uppercase w-full">
+            <p>Lille, FR</p>
+             </div>
             </div>
           </div>
           
