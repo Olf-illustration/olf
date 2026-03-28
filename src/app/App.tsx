@@ -19,22 +19,22 @@ export default function App() {
     {
       id: 'mp3',
       title: 'MP3',
-      image: "https://i.postimg.cc/qvCwfNCT/meduse_mondrian_2.jpg"
+      image: "https://i.postimg.cc/pLKpwjRQ/bowie_fond_blanc_uni.jpg"
     },
     {
       id: 'perception',
       title: 'Perception',
-      image: "https://i.postimg.cc/g020XZq9/27white_tri.jpg"
+      image: "https://i.postimg.cc/m2qYdkFB/portes.jpg"
     },
     {
       id: 'aaahh!',
       title: 'aaahh!',
-      image: "https://i.postimg.cc/QtWh1kBs/A4_11.png"
+      image: "https://i.postimg.cc/sg5vkWsG/A4_21.jpg"
     },
     {
       id: 'ombre passagère',
       title: 'Ombre passagère',
-      image: "https://i.postimg.cc/QtWh1kBs/A4_11.png"
+      image: "https://i.postimg.cc/FH07MSNS/A4_24.jpg"
     }
   ];
 
