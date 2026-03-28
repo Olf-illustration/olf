@@ -9,7 +9,7 @@ const images = [
   "https://i.postimg.cc/3x2dsGY4/A4_20.jpg",
   "https://i.postimg.cc/GmvHWDdG/Auto_Save_2023_02_08_12_17_37.jpg",
   "https://i.postimg.cc/5t16bttW/doodle.jpg",
-  "https://i.postimg.cc/435ndTKs/eyes_5.png", // Le 'f' a été supprimé ici
+  "https://i.postimg.cc/435ndTKs/eyes_5.png", 
   "https://i.postimg.cc/RFZhJbfs/meduse.png",
   "https://i.postimg.cc/kXFLwqzR/zbobok.png",
   "https://i.postimg.cc/xTSWKcxv/tronches.png",
@@ -18,11 +18,10 @@ const images = [
   "https://i.postimg.cc/J0QK340k/rim.jpg",
   "https://i.postimg.cc/GtjzPhts/Rebelle_Artwork.jpg",
   "https://i.postimg.cc/mkCn3yMn/trope.jpg",
-  "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg"
-  "https://i.postimg.cc/J0J0SGZw/visages_multiples.jpg"
-  "https://i.postimg.cc/QtvV6p9d/littleredhood.jpg"
+  "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg", // Ajout virgule
+  "https://i.postimg.cc/J0J0SGZw/visages_multiples.jpg", // Ajout virgule
+  "https://i.postimg.cc/QtvV6p9d/littleredhood.jpg", // Ajout virgule
   "https://i.postimg.cc/ZRX0frBT/Rebelle_Artworkpeinture_2020.jpg"
-
 ];
 
 export default function ImageGrid() {
