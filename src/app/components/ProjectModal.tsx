@@ -50,15 +50,23 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
   const project = projectsData[serie.id] || projectsData['mp3'];
 
   return (
-    <div className="fixed inset-0 z-[100] backdrop-blur-[2px] bg-[rgba(33,33,33,0.3)] flex items-center justify-center p-[40px]">
-      <div className="bg-white flex-1 h-full max-w-[1200px] overflow-y-auto relative rounded-[48px] shadow-2xl p-[64px] lg:px-[96px]">
+    /* Arrière-plan cliquable : ajout de onClick={onClose} */
+    <div 
+      className="fixed inset-0 z-[100] backdrop-blur-[2px] bg-[rgba(33,33,33,0.3)] flex items-center justify-center p-[40px] cursor-pointer"
+      onClick={onClose}
+    >
+      {/* Contenu de la modale : ajout de onClick={(e) => e.stopPropagation()} pour ne pas fermer quand on clique sur le contenu blanc */}
+      {/* Suppression barre de défilement : ajout de la classe 'scrollbar-hide' et du style inline */}
+      <div 
+        className="bg-white flex-1 h-full max-w-[1200px] overflow-y-auto relative rounded-[48px] shadow-2xl p-[64px] lg:px-[96px] cursor-default scrollbar-hide"
+        onClick={(e) => e.stopPropagation()}
+        style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
+      >
         <div className="flex flex-col gap-[64px] items-center">
           <div className="text-center max-w-[672px]">
-            {/* TITRE : Utilisation de font-epilogue et font-black */}
             <h2 className="font-epilogue font-black text-[72px] uppercase tracking-tighter text-[#212121] leading-tight">
               {project.title}
             </h2>
-            {/* DESCRIPTION : Utilisation de font-inter et font-medium */}
             <p className="font-inter font-medium text-[#a09f9e] text-[18px] mt-4 leading-relaxed">
               {project.description}
             </p>
@@ -78,7 +86,7 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
                 <span key={i} className="font-inter bg-[#eee] px-4 py-2 rounded-xl text-[11px] font-bold uppercase tracking-widest">{tag}</span>
               ))}
             </div>
-            <a href="https://instagram.com" target="_blank" className="font-epilogue bg-[#212121] text-white px-10 py-5 rounded-xl font-black uppercase text-[14px]">instagram</a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="font-epilogue bg-[#212121] text-white px-10 py-5 rounded-xl font-black uppercase text-[14px]">instagram</a>
           </div>
         </div>
 
