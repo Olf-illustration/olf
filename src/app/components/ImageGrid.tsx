@@ -4,21 +4,21 @@ import { useState } from "react";
 // pour éviter les erreurs de build liées aux imports de modules externes.
 
 const images = [
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg", // Le 'f' a été supprimé ici
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg",
-  "https://i.postimg.cc/m2qYdkFB/portes.jpg"
+  "https://i.postimg.cc/ZR5nvD3W/joker.jpg",
+  "https://i.postimg.cc/DzF8nzw6/dali.jpg",
+  "https://i.postimg.cc/3x2dsGY4/A4_20.jpg",
+  "https://i.postimg.cc/GmvHWDdG/Auto_Save_2023_02_08_12_17_37.jpg",
+  "https://i.postimg.cc/5t16bttW/doodle.jpg",
+  "https://i.postimg.cc/435ndTKs/eyes_5.png", // Le 'f' a été supprimé ici
+  "https://i.postimg.cc/RFZhJbfs/meduse.png",
+  "https://i.postimg.cc/kXFLwqzR/zbobok.png",
+  "https://i.postimg.cc/xTSWKcxv/tronches.png",
+  "https://i.postimg.cc/J4W9bG6b/Slide_16_9_2.png",
+  "https://i.postimg.cc/TYXZrp7n/bouffon.jpg",
+  "https://i.postimg.cc/J0QK340k/rim.jpg",
+  "https://i.postimg.cc/GtjzPhts/Rebelle_Artwork.jpg",
+  "https://i.postimg.cc/mkCn3yMn/trope.jpg",
+  "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg"
 ];
 
 export default function ImageGrid() {
