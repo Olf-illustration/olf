@@ -23,32 +23,36 @@ export default function HeroSection() {
             </p>
           </div>
           
-          {/* Pile d'illustrations animée façon Spencer Gabor */}
-          {/* Ajout de cursor-pointer pour inciter au survol */}
-          <div className="h-[581px] max-w-[896px] relative w-full mt-8 cursor-pointer" data-name="Hero Illustration Stack">
+          {/* Pile d'illustrations animée façon SPENCER GABOR */}
+          {/* mt-16 pour espacer un peu plus du texte vu que l'animation saute vers le haut */}
+          <div className="h-[500px] max-w-[1000px] relative w-full mt-16 cursor-pointer" data-name="Hero Illustration Stack">
             <div className="absolute inset-0 flex items-center justify-center group">
               
               {/* Card 1 (Gauche) */}
-              <div className="absolute z-[1] transition-all duration-500 ease-out -rotate-6 group-hover:-rotate-12 group-hover:-translate-x-[240px] group-hover:scale-105">
-                {/* Ajout d'une bordure blanche épaisse pour l'effet carte */}
-                <div className="bg-white overflow-hidden rounded-[16px] shadow-xl size-[384px] border-[8px] border-white">
+              <div className="absolute z-[1] transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] 
+                              -rotate-12 -translate-x-8 translate-y-4 
+                              group-hover:-rotate-6 group-hover:-translate-x-[280px] group-hover:-translate-y-12">
+                <div className="bg-white overflow-hidden rounded-[20px] shadow-lg group-hover:shadow-2xl size-[320px] border-[8px] border-white">
                    <img alt="Illustration 1" className="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://i.postimg.cc/QtWh1kBs/A4_11.png" />
                 </div>
               </div>
               
               {/* Card 3 (Droite) */}
-              <div className="absolute z-[2] transition-all duration-500 ease-out rotate-6 group-hover:rotate-12 group-hover:translate-x-[240px] group-hover:scale-105">
-                <div className="bg-white overflow-hidden rounded-[16px] shadow-xl size-[384px] border-[8px] border-white">
-                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/m2qYdkFB/portes.jpg" />
+              <div className="absolute z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] 
+                              rotate-12 translate-x-8 translate-y-8 
+                              group-hover:rotate-8 group-hover:translate-x-[280px] group-hover:-translate-y-8">
+                <div className="bg-white overflow-hidden rounded-[20px] shadow-lg group-hover:shadow-2xl size-[320px] border-[8px] border-white">
+                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
                 </div>
               </div>
 
               {/* Card 2 (Centre - Au dessus) */}
-              {/* z-[10] assure qu'elle reste toujours au premier plan */}
-              <div className="absolute z-[10] transition-all duration-500 ease-out rotate-0 group-hover:scale-110">
-                <div className="bg-black overflow-hidden rounded-[16px] shadow-2xl size-[384px] border-[8px] border-black">
-                  {/* CORRECTION DU LIEN DE L'IMAGE ICI */}
-                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
+              <div className="absolute z-[10] transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] 
+                              rotate-3 translate-x-0 -translate-y-2 
+                              group-hover:-rotate-2 group-hover:-translate-y-20 group-hover:scale-105">
+                <div className="bg-black overflow-hidden rounded-[20px] shadow-xl group-hover:shadow-2xl size-[320px] border-[8px] border-black">
+                  {/* J'ai remis l'image de la Méduse pour le centre, change-la si besoin ! */}
+                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/Qt8yG2J3/meduse-mondrian-2.jpg" />
                 </div>
               </div>
               
