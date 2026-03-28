@@ -48,7 +48,7 @@ export default function HeroSection() {
               <div className="absolute z-[10] transition-all duration-500 ease-out rotate-0 group-hover:scale-110">
                 <div className="bg-black overflow-hidden rounded-[16px] shadow-2xl size-[384px] border-[8px] border-black">
                   {/* CORRECTION DU LIEN DE L'IMAGE ICI */}
-                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/Qt8yG2J3/meduse-mondrian-2.jpg" />
+                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
                 </div>
               </div>
               
