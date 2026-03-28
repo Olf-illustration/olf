@@ -19,7 +19,7 @@ export default function HeroSection() {
           {/* Sous-titre */}
           <div className="flex flex-col items-center w-full" data-name="Container">
             <p className="font-bold text-[#363636] text-[24px] text-center tracking-[-0.6px] uppercase max-w-[647px] leading-tight">
-              Illustration, design & une bonne dose de lorazépam
+              Illustration, design & lorazépam
             </p>
           </div>
           
