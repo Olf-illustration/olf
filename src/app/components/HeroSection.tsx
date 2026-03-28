@@ -1,4 +1,28 @@
+import { useState, useRef } from 'react';
+
 export default function HeroSection() {
+  // On crée des références et des états pour suivre la souris
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Fonction qui calcule la position de la souris de -1 (gauche/haut) à 1 (droite/bas)
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    setMousePos({ x, y });
+  };
+
+  const handleMouseEnter = () => setIsHovered(true);
+  
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    // On remet la souris au centre quand on quitte la zone pour que les cartes se rangent bien
+    setMousePos({ x: 0, y: 0 });
+  };
+
   return (
     <div className="h-auto min-h-[800px] w-full max-w-[1536px] relative shrink-0 mx-auto" data-name="Hero Section">
       <div className="flex flex-col items-center w-full">
@@ -23,36 +47,57 @@ export default function HeroSection() {
             </p>
           </div>
           
-          {/* Pile d'illustrations animée façon SPENCER GABOR */}
-          {/* mt-16 pour espacer un peu plus du texte vu que l'animation saute vers le haut */}
-          <div className="h-[500px] max-w-[1000px] relative w-full mt-16 cursor-pointer" data-name="Hero Illustration Stack">
-            <div className="absolute inset-0 flex items-center justify-center group">
+          {/* Pile d'illustrations INTÉRACTIVE */}
+          <div 
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="h-[500px] max-w-[1000px] relative w-full mt-16 cursor-pointer" 
+            data-name="Hero Illustration Stack"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
               
               {/* Card 1 (Gauche) */}
-              <div className="absolute z-[1] transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] 
-                              -rotate-12 -translate-x-8 translate-y-4 
-                              group-hover:-rotate-6 group-hover:-translate-x-[280px] group-hover:-translate-y-12">
-                <div className="bg-white overflow-hidden rounded-[20px] shadow-lg group-hover:shadow-2xl size-[320px] border-[8px] border-white">
-                   <img alt="Illustration 1" className="w-full h-full object-cover mix-blend-multiply opacity-80" src="https://i.postimg.cc/QtWh1kBs/A4_11.png" />
+              {/* On utilise inline-style pour injecter la position exacte calculée */}
+              <div 
+                className="absolute z-[1] transition-all duration-300 ease-out"
+                style={{
+                  transform: isHovered 
+                    ? `translate(calc(-280px + ${mousePos.x * 40}px), calc(-48px + ${mousePos.y * 40}px)) rotate(calc(-6deg + ${mousePos.x * 5}deg))`
+                    : `translate(-32px, 16px) rotate(-12deg)`
+                }}
+              >
+                <div className={`bg-white overflow-hidden rounded-[20px] size-[320px] border-[8px] border-white transition-shadow duration-300 ${isHovered ? 'shadow-2xl' : 'shadow-lg'}`}>
+                   <img alt="Illustration 1" className="w-full h-full object-cover mix-blend-multiply opacity-80 pointer-events-none" src="https://i.postimg.cc/QtWh1kBs/A4_11.png" />
                 </div>
               </div>
               
               {/* Card 3 (Droite) */}
-              <div className="absolute z-[2] transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] 
-                              rotate-12 translate-x-8 translate-y-8 
-                              group-hover:rotate-8 group-hover:translate-x-[280px] group-hover:-translate-y-8">
-                <div className="bg-white overflow-hidden rounded-[20px] shadow-lg group-hover:shadow-2xl size-[320px] border-[8px] border-white">
-                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
+              <div 
+                className="absolute z-[2] transition-all duration-300 ease-out"
+                style={{
+                  transform: isHovered 
+                    ? `translate(calc(280px + ${mousePos.x * 60}px), calc(-32px + ${mousePos.y * 60}px)) rotate(calc(8deg + ${mousePos.x * 5}deg))`
+                    : `translate(32px, 32px) rotate(12deg)`
+                }}
+              >
+                <div className={`bg-white overflow-hidden rounded-[20px] size-[320px] border-[8px] border-white transition-shadow duration-300 ${isHovered ? 'shadow-2xl' : 'shadow-lg'}`}>
+                  <img alt="Illustration 3" className="w-full h-full object-cover mix-blend-multiply pointer-events-none" src="https://i.postimg.cc/xC18NFHk/leclubdes27.jpg" />
                 </div>
               </div>
 
               {/* Card 2 (Centre - Au dessus) */}
-              <div className="absolute z-[10] transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] 
-                              rotate-3 translate-x-0 -translate-y-2 
-                              group-hover:-rotate-2 group-hover:-translate-y-20 group-hover:scale-105">
-                <div className="bg-black overflow-hidden rounded-[20px] shadow-xl group-hover:shadow-2xl size-[320px] border-[8px] border-black">
-                  {/* J'ai remis l'image de la Méduse pour le centre, change-la si besoin ! */}
-                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90" src="https://i.postimg.cc/Qt8yG2J3/meduse-mondrian-2.jpg" />
+              <div 
+                className="absolute z-[10] transition-all duration-300 ease-out"
+                style={{
+                  transform: isHovered 
+                    ? `translate(calc(0px + ${mousePos.x * 20}px), calc(-80px + ${mousePos.y * 20}px)) rotate(calc(-2deg + ${mousePos.x * 2}deg)) scale(1.05)`
+                    : `translate(0px, -8px) rotate(3deg) scale(1)`
+                }}
+              >
+                <div className={`bg-black overflow-hidden rounded-[20px] size-[320px] border-[8px] border-black transition-shadow duration-300 ${isHovered ? 'shadow-2xl' : 'shadow-xl'}`}>
+                  <img alt="Illustration 2" className="w-full h-full object-cover mix-blend-screen opacity-90 pointer-events-none" src="https://i.postimg.cc/sg5vkWsG/A4_21.jpg" />
                 </div>
               </div>
               
