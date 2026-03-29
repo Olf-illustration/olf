@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // NETTOYAGE : Les images sont maintenant directement dans le tableau ci-dessous 
 // pour éviter les erreurs de build liées aux imports de modules externes.
@@ -24,6 +24,60 @@ const images = [
   "https://i.postimg.cc/ZRX0frBT/Rebelle_Artworkpeinture_2020.jpg"
 ];
 
+// --- NOUVEAU COMPOSANT : Gère l'animation individuelle de chaque image ---
+const AnimatedGridItem = ({ image, index, onClick }: { image: string, index: number, onClick: () => void }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const domRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // L'observateur vérifie si l'élément entre dans l'écran
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        // threshold: 0.1 signifie "déclenche quand 10% de l'image est visible"
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // On arrête d'observer une fois apparu pour que ça ne rejoue pas à l'infini
+          if (domRef.current) observer.unobserve(domRef.current);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "50px" });
+
+    if (domRef.current) {
+      observer.observe(domRef.current);
+    }
+
+    return () => {
+      if (domRef.current) observer.unobserve(domRef.current);
+    };
+  }, []);
+
+  return (
+    <div 
+      ref={domRef}
+      onClick={onClick}
+      className={`bg-[rgba(157,202,255,0)] content-stretch flex flex-col items-start justify-center overflow-clip relative rounded-[16px] shrink-0 cursor-pointer 
+        transition-all duration-[800ms] ease-out
+        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}
+        hover:scale-[1.02]
+      `} 
+      // La magie de la cascade (stagger) : la colonne 1 a 0ms de délai, la 2 a 150ms, la 3 a 300ms
+      style={{ transitionDelay: `${(index % 3) * 150}ms` }}
+      data-name={`Item ${index + 1}`}
+    >
+      <div className="h-[384px] mix-blend-multiply relative shrink-0 w-full">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img 
+            alt={`Artwork ${index + 1}`} 
+            className="absolute h-full left-0 max-w-none top-0 w-full object-cover" 
+            src={image} 
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 export default function ImageGrid() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -33,7 +87,6 @@ export default function ImageGrid() {
         <div className="max-w-[1536px] relative shrink-0 w-full mx-auto" data-name="Container">
           <div className="content-stretch flex flex-col gap-[80px] items-center max-w-[inherit] px-[32px] relative w-full">
             
-            {/* --- MODIFICATION ICI : justify-center et gap-6 pour centrer le bloc Titre + Icône --- */}
             <div className="flex items-center justify-center gap-6 relative shrink-0 w-full" data-name="Title Container">
               <div className="flex flex-col items-center relative shrink-0" data-name="Heading 2">
                 <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[60px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[60px] tracking-[-3px] uppercase">
@@ -49,31 +102,22 @@ export default function ImageGrid() {
               </div>
             </div>
 
-            <div className="gap-x-[32px] gap-y-[32px] grid grid-cols-[repeat(3,minmax(0,1fr))] relative rounded-[20px] shrink-0 w-full" data-name="Grid Container">
+            <div className="gap-x-[32px] gap-y-[32px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative rounded-[20px] shrink-0 w-full" data-name="Grid Container">
+              {/* On utilise maintenant notre nouveau composant AnimatedGridItem */}
               {images.map((image, index) => (
-                <div 
-                  key={index}
-                  onClick={() => setSelectedImage(image)}
-                  className="bg-[rgba(157,202,255,0)] content-stretch flex flex-col items-start justify-center overflow-clip relative rounded-[16px] shrink-0 hover:scale-[1.02] transition-transform cursor-pointer" 
-                  data-name={`Item ${index + 1}`}
-                >
-                  <div className="h-[384px] mix-blend-multiply relative shrink-0 w-full">
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                      <img 
-                        alt={`Artwork ${index + 1}`} 
-                        className="absolute h-full left-0 max-w-none top-0 w-full object-cover" 
-                        src={image} 
-                      />
-                    </div>
-                  </div>
-                </div>
+                <AnimatedGridItem 
+                  key={index} 
+                  image={image} 
+                  index={index} 
+                  onClick={() => setSelectedImage(image)} 
+                />
               ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image Modal (Inchangée) */}
       {selectedImage && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-8"
