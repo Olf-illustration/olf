@@ -19,7 +19,7 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // --- LA PHYSIQUE DE LA COURBE (Inchangée, c'est parfait comme ça) ---
+  // --- LA PHYSIQUE DE LA COURBE ---
   const updateCurve = () => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
@@ -52,7 +52,7 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
 
   const handleScroll = () => updateCurve();
 
-  // --- LOGIQUE DU CLIQUER-DÉPOSER (Inchangée) ---
+  // --- LOGIQUE DU CLIQUER-DÉPOSER ---
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     setIsDragging(true);
@@ -88,8 +88,8 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
         onMouseLeave={handleMouseUpOrLeave}
         onMouseUp={handleMouseUpOrLeave}
         onMouseMove={handleMouseMove}
-        // cursor-grab indique qu'on peut agripper toute la zone pour scroller
-        className={`flex gap-12 w-full overflow-x-auto scrollbar-hide pt-12 pb-40 px-[20vw] cursor-grab active:cursor-grabbing select-none ${
+        // MODIFICATION ICI : pt-12 est devenu pt-24 pour laisser respirer le haut des cartes
+        className={`flex gap-12 w-full overflow-x-auto scrollbar-hide pt-24 pb-40 px-[20vw] cursor-grab active:cursor-grabbing select-none ${
           isDragging ? 'scroll-smooth-none' : 'scroll-smooth'
         }`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -100,10 +100,10 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
             ref={(el) => (cardsRef.current[index] = el)}
             className="flex-none w-[400px] transition-transform duration-75 ease-out origin-bottom"
           >
-            {/* L'enveloppe de la carte : group pour le hover, mais SANS onClick et SANS cursor-pointer */}
+            {/* L'enveloppe de la carte */}
             <div className="group transition-transform duration-500 hover:scale-[1.05]">
               
-              {/* Zone Image (Non cliquable) */}
+              {/* Zone Image */}
               <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-xl bg-white border-[8px] border-white">
                 <img 
                   src={serie.image} 
@@ -115,9 +115,8 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
                 />
               </div>
               
-              {/* Zone Bouton (SEULE ZONE CLIQUABLE) */}
+              {/* Zone Bouton */}
               <div className="mt-8 flex justify-center">
-                {/* J'utilise un <button> pour la sémantique et j'ajoute le cursor-pointer ici */}
                 <button 
                   onClick={() => !isDragging && onSerieClick(serie)}
                   className="cursor-pointer bg-[#e2e2e2] px-8 py-3 rounded-xl font-epilogue font-bold text-[14px] tracking-widest uppercase text-[#212121] group-hover:bg-[#d2d2d2] transition-colors border-none"
