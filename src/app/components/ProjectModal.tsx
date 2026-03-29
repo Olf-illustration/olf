@@ -20,23 +20,21 @@ const projectsData: Record<string, ProjectData> = {
     description: 'Quand la musique est bonne, bonne, bonne.',
     images: [
       "https://i.postimg.cc/pLKpwjRQ/bowie_fond_blanc_uni.jpg",
-      "https://i.postimg.cc/ZR5nvD3W/joker.jpg",
-      "https://i.postimg.cc/DzF8nzw6/dali.jpg",
-      "https://i.postimg.cc/3x2dsGY4/A4_20.jpg",
-      "https://i.postimg.cc/GmvHWDdG/Auto_Save_2023_02_08_12_17_37.jpg"
+      "https://i.postimg.cc/GpQ921B4/Gainsbourg.png",
+      "https://i.postimg.cc/qv2zPK41/Band_of_brothers.png",
+      "https://i.postimg.cc/Tw315HmC/mercury.jpg",
+      "https://i.postimg.cc/g020XZq9/27white_tri.jpg"
     ],
-    tags: ['Illustration', 'Editorial']
+    tags: ['Illustration', 'Music']
   },
   'perception': {
     title: 'PERCEPTION',
-    description: 'Mural design and installations from California to Kuwait.',
+    description: 'Le poids du choix et de l\'indécision',
     images: [
-      "https://i.postimg.cc/Qt8yG2J3/meduse-mondrian-2.jpg",
-      "https://i.postimg.cc/RFZhJbfs/meduse.png",
-      "https://i.postimg.cc/kXFLwqzR/zbobok.png",
-      "https://i.postimg.cc/xTSWKcxv/tronches.png",
-      "https://i.postimg.cc/TYXZrp7n/bouffon.jpg"
-    ],
+      "https://i.postimg.cc/m2qYdkFB/portes.jpg",
+      "https://i.postimg.cc/wTPXWMsH/ombre.jpg",
+      "https://i.postimg.cc/mkCn3yMn/trope.jpg",
+      ],
     tags: []
   },
   'aaahh!': {
@@ -45,8 +43,8 @@ const projectsData: Record<string, ProjectData> = {
     images: [
       "https://i.postimg.cc/sg5vkWsG/A4_21.jpg",
       "https://i.postimg.cc/J0QK340k/rim.jpg",
-      "https://i.postimg.cc/GtjzPhts/Rebelle_Artwork.jpg",
-      "https://i.postimg.cc/mkCn3yMn/trope.jpg",
+      "https://i.postimg.cc/BvsX4vnm/cats.jpg,
+      "https://i.postimg.cc/ZRX0frBT/Rebelle_Artworkpeinture_2020.jpg",
       "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg"
     ],
     tags: []
