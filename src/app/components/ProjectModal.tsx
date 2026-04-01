@@ -39,7 +39,7 @@ const projectsData: Record<string, ProjectData> = {
   },
   'aaahh!': {
     title: 'AAAHH!',
-    description: 'Un peu de couleur dans ce monde de noir & blanc',
+    description: "Capsule colorée qui vient contrebalançer l'omniprésence du noir et blanc. Un peu de couleur dans ce monde de brute merde !",
     images: [
       "https://i.postimg.cc/sg5vkWsG/A4_21.jpg",
       "https://i.postimg.cc/J0QK340k/rim.jpg",
