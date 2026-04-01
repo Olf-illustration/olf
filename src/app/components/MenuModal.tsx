@@ -92,4 +92,17 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
           <button
             onClick={onClose}
             className="flex items-center justify-center cursor-pointer bg-transparent border-0 hover:opacity-70 transition-opacity p-2 -mr-2"
-            aria-label
+            aria-label="Fermer le menu"
+          >
+            <div className="relative shrink-0 size-[20px]">
+              <svg className="absolute block size-full" fill="none" viewBox="0 0 24 24" stroke="#212121" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  );
+}
