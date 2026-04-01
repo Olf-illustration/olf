@@ -88,7 +88,6 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
         onMouseLeave={handleMouseUpOrLeave}
         onMouseUp={handleMouseUpOrLeave}
         onMouseMove={handleMouseMove}
-        // MODIFICATION ICI : pt-12 est devenu pt-24 pour laisser respirer le haut des cartes
         className={`flex gap-12 w-full overflow-x-auto scrollbar-hide pt-24 pb-40 px-[20vw] cursor-grab active:cursor-grabbing select-none ${
           isDragging ? 'scroll-smooth-none' : 'scroll-smooth'
         }`}
@@ -109,8 +108,7 @@ export default function CurvedCarousel({ series, onSerieClick }: CurvedCarouselP
                   src={serie.image} 
                   alt={serie.title}
                   className={`w-full h-full object-cover pointer-events-none ${
-                    serie.id === 'mp3' ? 'mix-blend-multiply' : 
-                    serie.id === 'perception' ? 'mix-blend-screen opacity-90' : ''
+                    serie.id === 'mp3' ? 'mix-blend-multiply' : ''
                   }`}
                 />
               </div>
