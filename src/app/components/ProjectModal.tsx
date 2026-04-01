@@ -43,7 +43,7 @@ const projectsData: Record<string, ProjectData> = {
     images: [
       "https://i.postimg.cc/sg5vkWsG/A4_21.jpg",
       "https://i.postimg.cc/J0QK340k/rim.jpg",
-      "https://i.postimg.cc/BvsX4vnm/cats.jpg,
+      "https://i.postimg.cc/BvsX4vnm/cats.jpg",
       "https://i.postimg.cc/kXFLwqzR/zbobok.png",
       "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg"
     ],
@@ -81,10 +81,16 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] backdrop-blur-[4px] bg-[rgba(33,33,33,0.4)] flex items-center justify-center p-[20px] md:p-[40px]">
+    <div 
+      className="fixed inset-0 z-[100] backdrop-blur-[4px] bg-[rgba(33,33,33,0.4)] flex items-center justify-center p-[20px] md:p-[40px]"
+      onClick={onClose} // <-- AJOUT : Ferme la modale si on clique sur l'arrière-plan
+    >
       
       {/* MODALE PLUS LARGE */}
-      <div className="bg-white w-full h-full max-h-[95vh] max-w-[1600px] overflow-y-auto relative rounded-[32px] md:rounded-[48px] shadow-2xl p-[40px] md:p-[80px]">
+      <div 
+        className="bg-white w-full h-full max-h-[95vh] max-w-[1600px] overflow-y-auto relative rounded-[32px] md:rounded-[48px] shadow-2xl p-[40px] md:p-[80px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" // <-- AJOUT : Classes pour cacher la scrollbar
+        onClick={(e) => e.stopPropagation()} // <-- AJOUT : Empêche le clic à l'intérieur de fermer la modale
+      >
         
         {/* BOUTON CLOSE */}
         <button 
