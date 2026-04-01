@@ -21,8 +21,10 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
 
   return (
     <div className="fixed inset-0 z-[200] bg-[#faf9f9] content-stretch flex flex-col gap-[160px] items-start overflow-y-auto" data-name="OLF menu">
+      
+      {/* --- LE CONTENU DU MENU --- */}
       <div className="content-stretch flex flex-col items-start overflow-clip pt-[128px] relative shrink-0 w-full" data-name="Main">
-        <div className="min-h-[1697px] max-w-[1536px] relative shrink-0 w-full" data-name="Hero Section">
+        <div className="min-h-[1697px] max-w-[1536px] relative shrink-0 w-full mx-auto" data-name="Hero Section">
           <div className="flex flex-col items-center max-w-[inherit] size-full">
             <div className="content-stretch flex flex-col gap-[15px] items-center max-w-[inherit] px-[32px] relative size-full">
               <div className="h-[20px] shrink-0 w-full" data-name="Container" />
@@ -74,30 +76,20 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
         </div>
       </div>
       
-      <div className="absolute backdrop-blur-[12px] bg-[rgba(250,249,249,0.8)] content-stretch flex flex-col items-start left-0 top-0 w-full z-50" data-name="TopNavBar">
-        <div className="max-w-[1536px] relative shrink-0 w-full" data-name="Container">
-          <div className="flex flex-row items-center max-w-[inherit] size-full">
-            <div className="content-stretch flex items-center justify-between max-w-[inherit] px-[32px] py-[24px] relative w-full">
-              <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Link">
-                <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[32px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[24px] tracking-[-1.2px] uppercase w-[42.55px]">
-                  <p className="leading-[32px]">OLF</p>
-                </div>
-              </div>
-              <button
-                onClick={onClose}
-                className="content-stretch flex items-center relative shrink-0 cursor-pointer bg-transparent border-0 hover:opacity-70 transition-opacity"
-                data-name="Link"
-              >
-                <div className="relative shrink-0 size-[20px]" data-name="Container">
-                  <svg className="absolute block size-full" fill="none" viewBox="0 0 24 24" stroke="#212121" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </div>
-              </button>
-            </div>
+      {/* --- LA NAVIGATION DU MENU (CORRIGÉE) --- */}
+      <div 
+        className="absolute backdrop-blur-[12px] bg-[rgba(250,249,249,0.8)] left-0 right-0 top-0 z-50 flex justify-center w-full" 
+        data-name="TopNavBar"
+      >
+        <div className="max-w-[1536px] w-full flex items-center justify-between px-[32px] py-[24px] mx-auto">
+          
+          {/* LOGO */}
+          <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[32px] justify-center leading-[0] text-[#212121] text-[24px] tracking-[-1.2px] uppercase">
+            <p className="leading-[32px]">OLF</p>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+          
+          {/* BOUTON FERMER (Croix) */}
+          <button
+            onClick={onClose}
+            className="flex items-center justify-center cursor-pointer bg-transparent border-0 hover:opacity-70 transition-opacity p-2 -mr-2"
+            aria-label
