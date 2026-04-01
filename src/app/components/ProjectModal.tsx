@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Serie } from './CurvedCarousel';
 
 interface ProjectModalProps {
@@ -64,7 +64,10 @@ const projectsData: Record<string, ProjectData> = {
 };
 
 export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
-  // Empêche le scroll de la page quand la modale est ouverte
+  // NOUVEL ÉTAT : Pour gérer l'image ouverte en plein écran
+  const [selectedImageForFullscreen, setSelectedImageForFullscreen] = useState<string | null>(null);
+
+  // Empêche le scroll de la page quand la modale principale est ouverte
   useEffect(() => {
     document.body.style.overflow = serie ? 'hidden' : 'unset';
     return () => { document.body.style.overflow = 'unset'; };
@@ -81,69 +84,89 @@ export default function ProjectModal({ serie, onClose }: ProjectModalProps) {
   };
 
   return (
-    <div 
-      className="fixed inset-0 z-[100] backdrop-blur-[4px] bg-[rgba(33,33,33,0.4)] flex items-center justify-center p-[20px] md:p-[40px]"
-      onClick={onClose} // <-- AJOUT : Ferme la modale si on clique sur l'arrière-plan
-    >
-      
-      {/* MODALE PLUS LARGE */}
+    <>
+      {/* MODALE PRINCIPALE */}
       <div 
-        className="bg-white w-full h-full max-h-[95vh] max-w-[1600px] overflow-y-auto relative rounded-[32px] md:rounded-[48px] shadow-2xl p-[40px] md:p-[80px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" // <-- AJOUT : Classes pour cacher la scrollbar
-        onClick={(e) => e.stopPropagation()} // <-- AJOUT : Empêche le clic à l'intérieur de fermer la modale
+        className="fixed inset-0 z-[100] backdrop-blur-[4px] bg-[rgba(33,33,33,0.4)] flex items-center justify-center p-[20px] md:p-[40px]"
+        onClick={onClose} 
       >
         
-        {/* BOUTON CLOSE */}
-        <button 
-          onClick={onClose} 
-          className="absolute right-6 top-6 md:right-12 md:top-12 w-14 h-14 flex items-center justify-center bg-[#f4f3f3] rounded-full text-[#212121] transition-all duration-300 hover:bg-[#e8e8e8] hover:shadow-md hover:scale-105 z-10"
-          aria-label="Fermer"
+        <div 
+          className="bg-white w-full h-full max-h-[95vh] max-w-[1600px] overflow-y-auto relative rounded-[32px] md:rounded-[48px] shadow-2xl p-[40px] md:p-[80px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" 
+          onClick={(e) => e.stopPropagation()} 
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* CONTENU DE LA MODALE */}
-        <div className="flex flex-col items-center w-full mt-4">
           
-          {/* En-tête du projet */}
-          <h2 className="font-['Epilogue:Black',sans-serif] font-black text-[#212121] text-[48px] md:text-[80px] text-center tracking-[-2px] uppercase leading-none mb-4">
-            {project.title}
-          </h2>
-          <p className="text-[#a0a0a0] font-medium text-[18px] md:text-[22px] text-center max-w-[600px] leading-relaxed mb-16">
-            {project.description}
-          </p>
+          <button 
+            onClick={onClose} 
+            className="absolute right-6 top-6 md:right-12 md:top-12 w-14 h-14 flex items-center justify-center bg-[#f4f3f3] rounded-full text-[#212121] transition-all duration-300 hover:bg-[#e8e8e8] hover:shadow-md hover:scale-105 z-10"
+            aria-label="Fermer"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
 
-          {/* MOSAÏQUE D'IMAGES (Maximum 5) */}
-          <div className="w-full max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 pb-20">
-            {project.images.slice(0, 5).map((img, idx) => {
-              
-              // La 3ème image (index 2) prend toute la largeur sur grand écran
-              const isFullWidth = idx === 2;
+          <div className="flex flex-col items-center w-full mt-4">
+            
+            <h2 className="font-['Epilogue:Black',sans-serif] font-black text-[#212121] text-[48px] md:text-[80px] text-center tracking-[-2px] uppercase leading-none mb-4">
+              {project.title}
+            </h2>
+            <p className="text-[#a0a0a0] font-medium text-[18px] md:text-[22px] text-center max-w-[600px] leading-relaxed mb-16">
+              {project.description}
+            </p>
 
-              return (
-                <div 
-                  key={idx} 
-                  className={`relative w-full overflow-hidden rounded-[24px] shadow-sm transition-transform duration-500 hover:scale-[1.02] ${
-                    isFullWidth ? 'md:col-span-2' : 'md:col-span-1'
-                  }`}
-                >
-                  <img 
-                    src={img} 
-                    alt={`${project.title} artwork ${idx + 1}`} 
-                    // On force un format pour que la grille soit toujours bien alignée
-                    className={`w-full h-full object-cover ${
-                      isFullWidth ? 'aspect-[2/1] md:aspect-[21/9]' : 'aspect-square md:aspect-[4/3]'
+            <div className="w-full max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 pb-20">
+              {project.images.slice(0, 5).map((img, idx) => {
+                const isFullWidth = idx === 2;
+
+                return (
+                  <div 
+                    key={idx} 
+                    // AJOUT de cursor-pointer et du onClick pour ouvrir l'image en plein écran
+                    onClick={() => setSelectedImageForFullscreen(img)}
+                    className={`relative w-full overflow-hidden rounded-[24px] shadow-sm transition-transform duration-500 hover:scale-[1.02] cursor-pointer ${
+                      isFullWidth ? 'md:col-span-2' : 'md:col-span-1'
                     }`}
-                  />
-                </div>
-              );
-            })}
+                  >
+                    <img 
+                      src={img} 
+                      alt={`${project.title} artwork ${idx + 1}`} 
+                      className={`w-full h-full object-cover pointer-events-none ${
+                        isFullWidth ? 'aspect-[2/1] md:aspect-[21/9]' : 'aspect-square md:aspect-[4/3]'
+                      }`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            
           </div>
-          
         </div>
-
       </div>
-    </div>
+
+      {/* MODALE SECONDAIRE : AFFICHAGE DE L'IMAGE EN PLEIN ÉCRAN */}
+      {selectedImageForFullscreen && (
+        <div 
+          className="fixed inset-0 z-[110] flex items-center justify-center bg-black/95 p-4 md:p-8"
+          onClick={() => setSelectedImageForFullscreen(null)}
+        >
+          <button
+            onClick={() => setSelectedImageForFullscreen(null)}
+            className="absolute top-6 right-6 md:top-8 md:right-8 z-[111] w-12 h-12 flex items-center justify-center bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors"
+            aria-label="Close fullscreen"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <img 
+            src={selectedImageForFullscreen} 
+            alt="Full size artwork" 
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()} // Empêche de fermer si on clique sur l'image elle-même
+          />
+        </div>
+      )}
+    </>
   );
 }
