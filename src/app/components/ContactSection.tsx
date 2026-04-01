@@ -59,14 +59,25 @@ export default function ContactSection() {
                 </div>
                 <div className="relative shrink-0 w-full z-10" data-name="Container">
                   <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center relative w-full">
-                    <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-[72px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[72px] text-center tracking-[-3.6px] uppercase max-w-full break-all">
-                      <p className="leading-[72px]">olf.illustration@gmail.com</p>
+                    
+                    {/* MODIFICATION 1 : Taille de l'email réduite (text-[48px] au lieu de 72px) */}
+                    <div className="flex flex-col font-['Epilogue:Black',sans-serif] font-black h-auto justify-center leading-[0] relative shrink-0 text-[#212121] text-[48px] md:text-[56px] text-center tracking-[-2px] uppercase max-w-full break-all">
+                      <p className="leading-[48px] md:leading-[56px]">olf.illustration@gmail.com</p>
                     </div>
+                    
                     <div className="content-stretch flex flex-col items-start pt-[32px] relative shrink-0" data-name="Margin">
                       <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-                        <div className="flex flex-col font-['Epilogue:Bold',sans-serif] font-bold h-[24px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[16px] text-center tracking-[3.2px] uppercase w-[120.17px] cursor-pointer hover:opacity-70 transition-opacity">
-                          <p className="leading-[24px]">INSTAGRAM</p>
-                        </div>
+                        
+                        {/* MODIFICATION 2 : Transformation en vrai lien cliquable (balise <a>) */}
+                        <a 
+                          href="https://www.instagram.com/olf.illustration/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex flex-col font-['Epilogue:Bold',sans-serif] font-bold h-[24px] justify-center leading-[0] relative shrink-0 text-[#212121] text-[16px] text-center tracking-[3.2px] uppercase w-auto px-4 cursor-pointer hover:opacity-70 transition-opacity"
+                        >
+                          <span className="leading-[24px]">INSTAGRAM</span>
+                        </a>
+                        
                       </div>
                     </div>
                   </div>
