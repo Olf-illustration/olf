@@ -39,12 +39,12 @@ const projectsData: Record<string, ProjectData> = {
   },
   'aaahh!': {
     title: 'AAAHH!',
-    description: 'Série horrifique et surprenante.',
+    description: 'Un peu de couleur dans ce monde de noir & blanc',
     images: [
       "https://i.postimg.cc/sg5vkWsG/A4_21.jpg",
       "https://i.postimg.cc/J0QK340k/rim.jpg",
       "https://i.postimg.cc/BvsX4vnm/cats.jpg,
-      "https://i.postimg.cc/ZRX0frBT/Rebelle_Artworkpeinture_2020.jpg",
+      "https://i.postimg.cc/kXFLwqzR/zbobok.png",
       "https://i.postimg.cc/DzF8nzz2/effroi_Black.jpg"
     ],
     tags: []
@@ -53,11 +53,11 @@ const projectsData: Record<string, ProjectData> = {
     title: 'OMBRE PASSAGÈRE',
     description: 'Exploration des ombres et de la lumière.',
     images: [
+      "https://i.postimg.cc/9Qyr69C4/A4_23.jpg",
       "https://i.postimg.cc/FH07MSNS/A4_24.jpg",
-      "https://i.postimg.cc/J0J0SGZw/visages_multiples.jpg",
-      "https://i.postimg.cc/QtvV6p9d/littleredhood.jpg",
-      "https://i.postimg.cc/ZRX0frBT/Rebelle_Artworkpeinture_2020.jpg",
-      "https://i.postimg.cc/5t16bttW/doodle.jpg"
+      "https://i.postimg.cc/Z56CGN43/A4_25.jpg",
+      "https://i.postimg.cc/435ndTKs/eyes_5.png",
+      "https://i.postimg.cc/J0J0SGZw/visages_multiples.jpg"
     ],
     tags: []
   }
